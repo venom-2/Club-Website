@@ -1,8 +1,8 @@
 # Knack Club
 
-Welcome to the Knack Club Website Development repository! This project aims to create a dynamic and engaging website for the Knack club. This README file provides essential information for contributors, ensuring a smooth collaboration process.
+Welcome to the Knack Club Website Development repository! This project aims to create a dynamic and engaging website for the Knack Club. This README file provides essential information for contributors, ensuring a smooth collaboration process.
 
-![WhatsApp Image 2023-04-27 at 11 01 51](https://github.com/venom-2/Club-Website/assets/103876428/11098bd9-fb4a-45bc-b297-8c2892486925)
+<p align="center"><img src="https://github.com/venom-2/Club-Website/assets/103876428/69ba4a83-bfc5-4789-83a3-7414bf1b0026" width="500"></p>
 
 ## Table of Contents
 
