@@ -19,7 +19,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -178,7 +177,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="about-section-form">
-                                            <form >
+                                            <form>
                                                 <div class="form-group contact-form-margin">
                                                     <input type="text" class="form-control input-text"
                                                         id="validationCustom01" placeholder="Your Name" required=""
@@ -199,7 +198,8 @@
                                                         class="form-control" placeholder="Your Message"></textarea>
                                                 </div>
                                                 <div class="contact-section-btn text-center">
-                                                    <button type="submit" class="btn btn-primary hover-effect" onclick="submitContact();">Send
+                                                    <button type="submit" class="btn btn-primary hover-effect"
+                                                        onclick="submitContact(event);">Send
                                                         Message</button>
                                                 </div>
                                             </form>
@@ -416,10 +416,40 @@
     <script src="assets/js/owl.carousel.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/text-animations.js"></script>
-    <script> 
-        const submitContact = ()=>{
-            console.log("This is correct");
-        }
+    <script>
+        const submitContact = async (e) => {
+            console.log("behen chod chal ja")
+            e.preventDefault(); // Prevent default form submission
+            let name = document.getElementById("validationCustom01").value;
+            let email = document.getElementById("validationCustom02").value;
+            let subject = document.getElementById("validationCustom03").value; // Corrected id
+            let message = document.getElementById("message").value;
+            console.log("bhai yaha tak sab theak h");
+            try {
+                if (name === "" || email === "" || subject === "" || message === "") {
+                    alert("Please fill all the fields");
+                } else {
+                    const response = await fetch("https://club-website.vercel.app/contact/", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            email: email,
+                            subject: subject,
+                            message: message
+                        })
+                    });
+                    console.log(response);
+                    alert("Your message has been sent successfully");
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+
     </script>
 
 </body>
