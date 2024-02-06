@@ -179,7 +179,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="about-section-form">
-                                            <form>
+                                            <form id="mainForm">
                                                 <div class="form-group contact-form-margin">
                                                     <input type="text" class="form-control input-text"
                                                         id="validationCustom01" placeholder="Your Name" required=""
@@ -425,16 +425,17 @@
     <script src="assets/js/text-animations.js"></script>
     <script>
         const member = async (e) =>  {
-            console.log("clicked");
+            // console.log("clicked");
             e.preventDefault();
             var name = document.getElementById("validationCustom01").value;
             var email = document.getElementById("validationCustom02").value;
             var phone = document.getElementById("validationCustom03").value;
             var branch = document.getElementById("validationCustom04").value;
             var year = document.getElementById("validationCustom05").value;
+            console.log(typeof(phone))
             try {
-                if (name === "" || email === "" || phone === "" || branch === "" || year === "") {
-                    alert("Please fill all the fields");
+                if (name === "" || email === "" || phone === "" || branch === "" || year === "" || phone.length != 10) {
+                    alert("Please fill all the fields correctly!");
                 } else {
                     const response = await fetch("https://club-website.vercel.app/becomemember/userdetails", {
                         method: "POST",
@@ -449,7 +450,8 @@
                             year: year
                         })
                     });
-                    console.log(response);
+                    // console.log(response);
+                    document.getElementById("mainForm").reset();
                     alert("Your message has been sent successfully");
                 }
             } catch (err) {

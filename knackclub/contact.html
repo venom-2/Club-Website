@@ -418,13 +418,13 @@
     <script src="assets/js/text-animations.js"></script>
     <script>
         const submitContact = async (e) => {
-            console.log("behen chod chal ja")
+            // console.log("behen chod chal ja")
             e.preventDefault(); // Prevent default form submission
             let name = document.getElementById("validationCustom01").value;
             let email = document.getElementById("validationCustom02").value;
             let subject = document.getElementById("validationCustom03").value; // Corrected id
             let message = document.getElementById("message").value;
-            console.log("bhai yaha tak sab theak h");
+            // console.log("bhai yaha tak sab theak h");
             try {
                 if (name === "" || email === "" || subject === "" || message === "") {
                     alert("Please fill all the fields");
@@ -441,7 +441,7 @@
                             message: message
                         })
                     });
-                    console.log(response);
+                    // console.log(response);
                     document.getElementById("mainForm").reset();
                     alert("Your message has been sent successfully");
                 }
