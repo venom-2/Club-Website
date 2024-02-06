@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const DATABASE_URL = "mongodb://localhost:27017/knackclub";
+const DATABASE_URL = "mongodb+srv://akshattrivedi32:aWqLHtILXUX8TLl6@knackclub-database.tdfdrkr.mongodb.net/";
 
 const connectToDatabase = ()=> {
     try {
