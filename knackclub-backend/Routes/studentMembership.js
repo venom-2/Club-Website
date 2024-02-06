@@ -3,7 +3,7 @@ const {body,validationResult} = require('express-validator');
 const Student = require('../models/Student');
 const route = express();
 
-route.put('/userdetails', [
+route.post('/userdetails', [
     body('email').isEmail(),
     body('phone').isLength({ min: 10, max: 10 }).withMessage('Phone number must be 10 digits'),
 ],async(req,res)=>{

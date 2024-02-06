@@ -3,7 +3,7 @@ const {body,validationResult} = require('express-validator');
 const Contact = require('../models/Contact');
 const route = express();
 
-route.put('/', [
+route.post('/', [
     body('email').isEmail(),
 ],async(req,res)=>{
     try {
