@@ -19,7 +19,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -180,7 +179,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="about-section-form">
-                                            <form method="POST" action="contact-form.php">
+                                            <form>
                                                 <div class="form-group contact-form-margin">
                                                     <input type="text" class="form-control input-text"
                                                         id="validationCustom01" placeholder="Your Name" required=""
@@ -198,17 +197,17 @@
                                                 </div>
                                                 <div class="form-group contact-form-margin">
                                                     <input type="text" class="form-control input-text"
-                                                        id="validationCustom03" placeholder="Branch" required=""
+                                                        id="validationCustom04" placeholder="Branch" required=""
                                                         name="Branch">
                                                 </div>
                                                 <div class="form-group contact-form-margin">
                                                     <input type="text" class="form-control input-text"
-                                                        id="validationCustom03" placeholder="Year" required=""
+                                                        id="validationCustom05" placeholder="Year" required=""
                                                         name="Year">
                                                 </div>
                                                 <div class="contact-section-btn text-center">
                                                     <button type="submit"
-                                                        class="btn btn-primary hover-effect">Submit</button>
+                                                        class="btn btn-primary hover-effect" onclick="member(event);">Submit</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -424,6 +423,40 @@
     <script src="assets/js/owl.carousel.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/js/text-animations.js"></script>
+    <script>
+        const member = async (e) =>  {
+            console.log("clicked");
+            e.preventDefault();
+            var name = document.getElementById("validationCustom01").value;
+            var email = document.getElementById("validationCustom02").value;
+            var phone = document.getElementById("validationCustom03").value;
+            var branch = document.getElementById("validationCustom04").value;
+            var year = document.getElementById("validationCustom05").value;
+            try {
+                if (name === "" || email === "" || phone === "" || branch === "" || year === "") {
+                    alert("Please fill all the fields");
+                } else {
+                    const response = await fetch("https://club-website.vercel.app/becomemember/userdetails", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            email: email,
+                            phone: phone,
+                            branch: branch,
+                            year: year
+                        })
+                    });
+                    console.log(response);
+                    alert("Your message has been sent successfully");
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    </script>
 
 </body>
 
