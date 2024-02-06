@@ -177,7 +177,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="about-section-form">
-                                            <form>
+                                            <form id="mainForm">
                                                 <div class="form-group contact-form-margin">
                                                     <input type="text" class="form-control input-text"
                                                         id="validationCustom01" placeholder="Your Name" required=""
@@ -442,6 +442,7 @@
                         })
                     });
                     console.log(response);
+                    document.getElementById("mainForm").reset();
                     alert("Your message has been sent successfully");
                 }
             } catch (err) {
