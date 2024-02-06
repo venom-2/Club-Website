@@ -16,13 +16,12 @@ route.post('/', [
 
         const {name,email,subject,message} = req.body;
 
-        const newContact = new Contact({
-            name : name,
-            email : email,
-            subject : subject,
-            message : message
+        const contact = await Contact.create({
+            name: name,
+            email: email,
+            subject: subject,
+            message: message,
         });
-        const response = await newContact.save();
 
         res.status(200).json({ message: 'Data saved successfully' });
 

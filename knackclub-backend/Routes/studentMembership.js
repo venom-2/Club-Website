@@ -22,14 +22,13 @@ route.post('/userdetails', [
             res.status(200).json({ message: 'User already exists' });
         }
 
-        const newUser = new Student({
-            name : name,
-            email : email,
-            phone : phone,
-            branch : branch,
-            year : year
+        const student = await Student.create({
+            name: name,
+            email: email,
+            phone: phone,
+            branch: branch,
+            year: year,
         });
-        const response = await newUser.save();
 
         res.status(200).json({ message: 'User details added successfully' });
 
