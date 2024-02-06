@@ -9,9 +9,9 @@ const port = 3001;
 app.use(express.json()); // Add this line to parse JSON requests
 app.use(express.urlencoded({ extended: true })); // Add this line to parse URL-encoded requests
 
-// app.get('/',(req,res)=>{
-//     console.log("Hello Knack");
-// })
+app.get('/',(req,res)=>{
+    console.log("Hello Knack");
+})
 
 app.use('/becomemember',require('./Routes/studentMembership'));
 
