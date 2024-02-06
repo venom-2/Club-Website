@@ -15,7 +15,7 @@ app.use(express.json());
 // app.use(express.urlencoded({ extended: true })); // Add this line to parse URL-encoded requests
 
 app.get('/',(req,res)=>{
-    console.log("Hello Knack");
+    res.send("Hello Knack");
 })
 
 app.use('/becomemember',require('./Routes/studentMembership'));
