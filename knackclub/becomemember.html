@@ -450,9 +450,10 @@
                             year: year
                         })
                     });
-                    // console.log(response);
+                    const parserResponse = await response.json();
+                    console.log(parserResponse.message);
                     document.getElementById("mainForm").reset();
-                    alert("Your message has been sent successfully");
+                    alert(`${parserResponse.message}`);
                 }
             } catch (err) {
                 console.log(err);
