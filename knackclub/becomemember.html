@@ -432,7 +432,7 @@
             var phone = document.getElementById("validationCustom03").value;
             var branch = document.getElementById("validationCustom04").value;
             var year = document.getElementById("validationCustom05").value;
-            console.log(typeof(phone))
+            // console.log(typeof(phone))
             try {
                 if (name === "" || email === "" || phone === "" || branch === "" || year === "" || phone.length != 10) {
                     alert("Please fill all the fields correctly!");
@@ -451,7 +451,7 @@
                         })
                     });
                     const parserResponse = await response.json();
-                    console.log(parserResponse.message);
+                    // console.log(parserResponse.message);
                     document.getElementById("mainForm").reset();
                     alert(`${parserResponse.message}`);
                 }
