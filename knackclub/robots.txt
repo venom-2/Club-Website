@@ -3,3 +3,5 @@ Disallow: /private/
 Disallow: /admin/
 Disallow: /cgi-bin/
 Disallow: /tmp/
+Disallow: /assets/js
+Disallow: /assets/css
